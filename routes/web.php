@@ -15,4 +15,4 @@
 
 Route::get('/', function () {
     return view('layouts/layout');
-});
+})->name('Inicio');
