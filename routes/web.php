@@ -14,5 +14,9 @@
 
 
 Route::get('/', function () {
-    return view('layouts/layout');
+    return view('Inicio_temporal');
 })->name('Inicio');
+
+Route::get('/Hoteles/Agregar', 'HotelController@create')->name('HotelCreate');
+
+Route::post('/Hoteles/Agregar', 'HotelController@store')->name('HotelStore');
