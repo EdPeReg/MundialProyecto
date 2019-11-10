@@ -18,5 +18,7 @@ Route::get('/', function () {
 })->name('Inicio');
 
 Route::get('/Hoteles/Agregar', 'HotelController@create')->name('HotelCreate');
+Route::get('/Equipo/Agregar', 'EquipoController@create')->name('EquipoCreate');
 
 Route::post('/Hoteles/Agregar', 'HotelController@store')->name('HotelStore');
+Route::post('/Equipo/Agregar', 'EquipoController@store')->name('EquipoStore');
