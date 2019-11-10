@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 Route::get('/Hoteles/Agregar', 'HotelController@create')->name('HotelCreate');
 Route::get('/Equipo/Agregar', 'EquipoController@create')->name('EquipoCreate');
+Route::get('/Partido/Agregar', 'PartidoController@create')->name('PartidoCreate');
+Route::get('/Arbitro/Agregar', 'ArbitroController@create')->name('ArbitroCreate');
 
 Route::post('/Hoteles/Agregar', 'HotelController@store')->name('HotelStore');
 Route::post('/Equipo/Agregar', 'EquipoController@store')->name('EquipoStore');
+Route::post('/Partido/Agregar', 'PartidoController@store')->name('PartidoStore');
+Route::post('/Arbitro/Agregar', 'ArbitroController@store')->name('ArbitroStore');
