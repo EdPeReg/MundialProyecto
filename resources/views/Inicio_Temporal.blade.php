@@ -8,4 +8,5 @@
     <a href={{ route('EquipoCreate') }}>Formulario de Equipos</a><br>
     <a href={{ route('PartidoCreate') }}>Formulario de Partido</a><br>
     <a href={{ route('ArbitroCreate') }}>Formulario del Arbitro</a><br>
+    <a href={{ route('CanchaCreate') }}>Formulario de Cancha</a><br>
 @endsection

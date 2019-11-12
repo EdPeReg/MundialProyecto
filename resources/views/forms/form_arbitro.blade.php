@@ -26,11 +26,11 @@
                     {!! $errors->first('Apellido', '<small>:message</small><br>') !!} <br>
                 </div>
 
-                <div class="md-form">
+                <!--<div class="md-form">
                     <label for="materialPosicion">Posicion:</label>
                     <input value="{{ old('Posicion') }}" type="text" name="Posicion" id="materialPosicion" class="form-control">
                     {!! $errors->first('Posicion', '<small>:message</small><br>') !!} <br>
-                </div>
+                </div>-->
 
                 <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
                     type="submit">Agregar</button>

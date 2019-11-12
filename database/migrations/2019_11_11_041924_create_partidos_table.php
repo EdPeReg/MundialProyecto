@@ -14,10 +14,8 @@ class CreatePartidosTable extends Migration
     public function up()
     {
         Schema::create('partidos', function (Blueprint $table) {
-            $table->bigIncrements('Codigo');
-            $table->timestap('Fecha')->notnullable();
-            $table->text('Equipo1')->notnullable();
-            $table->text('Equipo2')->notnullable();
+            $table->bigIncrements('id');
+            $table->timestamp('Fecha')->notnullable();
             $table->integer('Resultado_eq1')->unsigned();
             $table->integer('Resultado_eq2')->unsigned();
             $table->timestamps();

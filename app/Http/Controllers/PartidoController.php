@@ -14,7 +14,7 @@ class PartidoController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -37,11 +37,19 @@ class PartidoController extends Controller
     {
         $partido = new Partido;
         $partido->Fecha = $request->Fecha;
-        $partido->Equipo1 = $request->Equipo1;
-        $partido->Equipo2 = $request->Equipo2;
         $partido->Resultado_eq1 = $request->Resultado_eq1;
         $partido->Resultado_eq2 = $request->Resultado_eq2;
         $partido->save();
+
+        $partido = \App\Partido::latest()->first();
+        $arbitro = \App\Arbitro::orderBy('created_at', 'desc')->first();
+
+        $partido->arbitros()->attach($arbitro);
+
+        $partido = \App\Partido::latest()->first();
+        $equipo = \App\Equipo::orderBy('created_at', 'desc')->first();
+
+        $partido->equipos()->attach($equipo);
 
         return redirect()->route('Inicio');
     }
@@ -91,3 +99,5 @@ class PartidoController extends Controller
         //
     }
 }
+$arbitro = Partido::find(1);
+        echo $arbitro;

@@ -16,7 +16,7 @@
                 @csrf
                 <div class="md-form">
                     <label for="materialFecha">Fecha:</label>
-                    <input value="{{ old('Fecha') }}" type="text" name="Fecha" id="materialFecha" class="form-control">
+                    <input value="{{ old('Fecha') }}" type="date" name="Fecha" id="materialFecha" class="form-control">
                     {!! $errors->first('Fecha', '<small>:message</small><br>') !!} <br>
                 </div>
 
@@ -24,12 +24,14 @@
                     <label for="materialEquipo1">Primer Equipo:</label>
                     <input value="{{ old('Equipo1') }}" type="text" name="Equipo1" id="materialEquipo1" class="form-control">
                     {!! $errors->first('Equipo1', '<small>:message</small><br>') !!} <br>
-                </div>
-
-                <div class="md-form">
+                
                     <label for="materialEquipo2">Segundo Equipo:</label>
                     <input value="{{ old('Equipo2') }}" type="text" name="Equipo2" id="materialEquipo2" class="form-control">
                     {!! $errors->first('Equipo2', '<small>:message</small><br>') !!} <br>
+                </div>
+
+                <div class="md-form">
+                   
                 </div>
 
                 <div class="md-form">

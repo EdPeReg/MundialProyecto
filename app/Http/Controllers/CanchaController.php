@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Arbitro;
+use App\Cancha;
 use Illuminate\Http\Request;
 
-class ArbitroController extends Controller
+class CanchaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ArbitroController extends Controller
      */
     public function index()
     {
-       
+        //
     }
 
     /**
@@ -24,8 +24,7 @@ class ArbitroController extends Controller
      */
     public function create()
     {
-       
-        return view('forms.form_arbitro');
+        return view('forms.form_cancha');
     }
 
     /**
@@ -36,25 +35,10 @@ class ArbitroController extends Controller
      */
     public function store(Request $request)
     {
-        $arbitro = new Arbitro;
-        $arbitro->Primer_nombre = $request->Primer_nombre;
-        $arbitro->Apellido = $request->Apellido;
-        $arbitro->Posicion = $request->Posicion;
-        $arbitro->save();
-
-        
-
-
-        //$arbitro = \App\Arbitro::latest()->first();
-        //$partido = \App\Partido::orderBy('created_at', 'desc')->first();
-        //$partido = \App\Partido::all();
-
-        //echo $partido;
-
-        //$arbitro->partidos()->attach($partido);
-       
-
-
+        $cancha = new Cancha;
+        $cancha->Ubicacion = $request->Ubicacion;
+        $cancha->Nombre = $request->Nombre;
+        $cancha->save();
 
         return redirect()->route('Inicio');
     }
@@ -62,10 +46,10 @@ class ArbitroController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Cancha  $cancha
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cancha $cancha)
     {
         //
     }
@@ -73,10 +57,10 @@ class ArbitroController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Cancha  $cancha
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cancha $cancha)
     {
         //
     }
@@ -85,10 +69,10 @@ class ArbitroController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Cancha  $cancha
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cancha $cancha)
     {
         //
     }
@@ -96,10 +80,10 @@ class ArbitroController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Cancha  $cancha
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cancha $cancha)
     {
         //
     }

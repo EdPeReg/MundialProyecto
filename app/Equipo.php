@@ -10,5 +10,9 @@ class Equipo extends Model
 		'Camiseta'];
     
     protected $guarded = ['codigo'];
+
+    public function partidos() {
+    	return $this->belongsToMany(Partido::class);
+    }
 }
 
