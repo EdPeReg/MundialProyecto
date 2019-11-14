@@ -4,9 +4,13 @@
 
 @section('content')
     <h1>Secciones desarrolladas:</h1><br>
-    <a href={{ route('HotelCreate') }}>Formulario de Hoteles</a><br>
-    <a href={{ route('EquipoCreate') }}>Formulario de Equipos</a><br>
+    <h2>Crear:</h2><br>
+    <a href={{ route('HotelCreate') }}>Formulario de Hotel</a><br>
+    <a href={{ route('EquipoCreate') }}>Formulario de Equipo</a><br>
     <a href={{ route('PartidoCreate') }}>Formulario de Partido</a><br>
-    <a href={{ route('ArbitroCreate') }}>Formulario del Arbitro</a><br>
+    <a href={{ route('ArbitroCreate') }}>Formulario de Arbitro</a><br>
     <a href={{ route('CanchaCreate') }}>Formulario de Cancha</a><br>
+    <a href={{ route('JugadorCreate') }}>Formulario de Jugador</a><br>
+    <a href={{ route('AntidopingCreate') }}>Formulario de Antidoping</a><br>
+    <a href={{ route('ClubCreate') }}>Formulario de Club</a><br>
 @endsection
