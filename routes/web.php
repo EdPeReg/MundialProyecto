@@ -15,6 +15,8 @@
 
 Route::get('/', function () {return view('Inicio_temporal');})->name('Inicio');
 
+Route::get('/Antidoping/', 'AntidopingController@index')->name('AntidopingIndex');
+
 
 Route::get('/Hoteles/Agregar', 'HotelController@create')->name('HotelCreate');
 Route::get('/Equipo/Agregar', 'EquipoController@create')->name('EquipoCreate');

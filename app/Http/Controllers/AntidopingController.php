@@ -15,7 +15,9 @@ class AntidopingController extends Controller
      */
     public function index()
     {
-        //
+        $antidoping = Antidoping::all();
+
+        return view('indices.indice_antidoping')->with('antidoping', $antidoping);
     }
 
     /**

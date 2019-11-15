@@ -18,8 +18,10 @@ class CreateClubJugadorTable extends Migration
             $table->integer('club_id')->unsigned();
             $table->integer('jugador_id')->unsigned();
 
-            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade');
-            $table->foreign('jugador_id')->references('id')->on('jugadors')->onDelete('cascade');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->foreign('jugador_id')->references('id')->on('jugadors')->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

@@ -4,7 +4,9 @@
 
 @section('content')
     <h1>Secciones desarrolladas:</h1><br>
-    <h2>Crear:</h2><br>
+    <h2>Indices:</h2><br>
+    <a href={{ route('AntidopingIndex') }}>Menu de Antidoping</a><br>
+    <br><h2>Crear:</h2><br>
     <a href={{ route('HotelCreate') }}>Formulario de Hotel</a><br>
     <a href={{ route('EquipoCreate') }}>Formulario de Equipo</a><br>
     <a href={{ route('PartidoCreate') }}>Formulario de Partido</a><br>

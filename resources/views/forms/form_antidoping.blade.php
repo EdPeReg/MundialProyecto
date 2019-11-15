@@ -33,9 +33,9 @@
                                 <label for="materialJugador">Jugador:</label>
                                 <select name="Jugador" id="materialJugador" class="form-control">
                                     <option selected disabled value="">Elige una opción:</option>
-                                    @forelse ($jugadores as $jugador_item)
+                                    @foreach ($jugadores as $jugador_item)
                                         <option value="{{ $jugador_item->id }}">{{ $jugador_item->Primer_nombre." ".$jugador_item->Apellido }}</option>
-                                    @endforelse
+                                    @endforeach
                                 </select>
                             </td>
                             <td>
