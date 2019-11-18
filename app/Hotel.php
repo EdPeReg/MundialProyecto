@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hotel extends Model
 {
-    protected $fillable = ['Nombre', 'Teléfono', 'NúmeroExt', 'Calle', 'CP'];
+    protected $fillable = ['Nombre', 'Telefono', 'NumeroExt', 'Calle', 'CP'];
 
-    protected $guarded = ['codigo'];
+    protected $guarded = ['id'];
+
+    public function reservacions()
+    {
+        return $this->hasMany('App\Reservacion');
+    }
 }

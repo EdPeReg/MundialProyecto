@@ -14,11 +14,16 @@ class CreatePartidosTable extends Migration
     public function up()
     {
         Schema::create('partidos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->integer('cancha_id')->unsigned()->notnullable();
+            $table->integer('arbitro_id')->unsigned()->notnullable();
             $table->timestamp('Fecha')->notnullable();
-            $table->integer('Resultado_eq1')->unsigned();
-            $table->integer('Resultado_eq2')->unsigned();
+            $table->integer('Resultado_eq1')->unsigned()->nullable();
+            $table->integer('Resultado_eq2')->unsigned()->nullable();
             $table->timestamps();
+
+            $table->foreign('cancha_id')->references('id')->on('canchas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('arbitro_id')->references('id')->on('arbitros')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

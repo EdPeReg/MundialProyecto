@@ -14,10 +14,10 @@ class CreateHotelsTable extends Migration
     public function up()
     {
         Schema::create('hotels', function (Blueprint $table) {
-            $table->bigIncrements('codigo');
+            $table->increments('id');
             $table->text('Nombre')->notnullable();
-            $table->text('Teléfono')->notnullable();
-            $table->integer('NúmeroExt')->unsigned()->default(0);
+            $table->text('Telefono')->notnullable();
+            $table->integer('NumeroExt')->unsigned()->default(0);
             $table->text('Calle')->notnullable();
             $table->text('CP')->notnullable();
             $table->timestamps();

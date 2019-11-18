@@ -6,14 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Arbitro extends Model
 {
-    protected $fillable = ['Primer_nombre', 'Apellido', 'Posicion'];
+    protected $fillable = ['Primer_nombre', 'Apellido'];
 
-    protected $guarded = ['Id'];
+    protected $guarded = ['id'];
 
-    /**
-     * Los partidos que pertenecen al arbitro.
-     **/
-    public function partidos() {
-        return $this->belongsToMany('App\Partido');
+    public function partidos()
+    {
+        return $this->hasMany('App\Partido');
     }
 }

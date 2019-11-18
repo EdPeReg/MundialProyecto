@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Equipo;
+use App\Jugador;
 use Illuminate\Http\Request;
 
 class EquipoController extends Controller
@@ -39,7 +40,6 @@ class EquipoController extends Controller
         $equipo->Pais = $request->Pais;
         $equipo->Director = $request->Director;
         $equipo->Entrenador = $request->Entrenador;
-        $equipo->Goles = $request->Goles;
         $equipo->Camiseta = $request->Camiseta;
         $equipo->save();
 

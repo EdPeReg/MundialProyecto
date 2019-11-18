@@ -15,6 +15,7 @@ class CreateJugadorsTable extends Migration
     {
         Schema::create('jugadors', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('equipo_id')->unsigned()->notnullable();
             $table->integer('Num_i')->unique()->unsigned()->notnullable();
             $table->text('Primer_nombre')->notnullable();
             $table->text('Apellido')->notnullable();
@@ -24,8 +25,10 @@ class CreateJugadorsTable extends Migration
             $table->float('Altura')->unsigned()->notnullable()->default(0.00);
             $table->date('Fecha_nac')->notnullable();
             $table->integer('Goles_mun')->unsigned()->nullable()->default(0);
-            $table->integer('Num_playera')->unsigned()->notnullable()->default(0);
+            $table->integer('Num_playera')->unsigned()->notnullable();
             $table->timestamps();
+
+            $table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

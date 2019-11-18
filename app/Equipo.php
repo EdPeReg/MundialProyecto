@@ -6,13 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipo extends Model
 {
-	protected $fillable = ['Pais', 'Director', 'Entrenador', 'Goles',
-		'Camiseta'];
+	protected $fillable = ['Pais', 'Director', 'Entrenador', 'Camiseta'];
     
-    protected $guarded = ['codigo'];
+    protected $guarded = ['id'];
 
     public function partidos() {
-    	return $this->belongsToMany(Partido::class);
+    	return $this->belongsToMany('App\Partido');
+    }
+
+    public function jugadors()
+    {
+        return $this->hasMany('App\Jugador');
+    }
+
+    public function reservacions()
+    {
+        return $this->hasMany('App\Reservacion');
     }
 }
 

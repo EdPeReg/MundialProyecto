@@ -14,11 +14,10 @@ class CreateEquiposTable extends Migration
     public function up()
     {
         Schema::create('equipos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->text('Pais')->notnullable();
             $table->text('Director')->notnullable();
             $table->text('Entrenador')->notnullable();
-            $table->integer('Goles')->unsigned()->default(0);
             $table->text('Camiseta')->notnullable();
             $table->timestamps();
         });

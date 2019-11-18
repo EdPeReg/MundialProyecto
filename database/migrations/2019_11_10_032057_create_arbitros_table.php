@@ -14,10 +14,9 @@ class CreateArbitrosTable extends Migration
     public function up()
     {
         Schema::create('arbitros', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->text('Primer_nombre')->notnullable();
             $table->text('Apellido')->notnullable();
-            $table->text('Posicion')->notnullable();
             $table->timestamps();
         });
     }

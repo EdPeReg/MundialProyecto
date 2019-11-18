@@ -14,7 +14,7 @@ class CreateClubJugadorTable extends Migration
     public function up()
     {
         Schema::create('club_jugador', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('club_id')->unsigned();
             $table->integer('jugador_id')->unsigned();
 

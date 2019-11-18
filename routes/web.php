@@ -15,8 +15,8 @@
 
 Route::get('/', function () {return view('Inicio_temporal');})->name('Inicio');
 
-Route::get('/Antidoping/', 'AntidopingController@index')->name('AntidopingIndex');
-
+Route::get('/Antidoping', 'AntidopingController@index')->name('AntidopingIndex');
+Route::get('/Reservacion', 'ReservacionController@index')->name('ReservacionIndex');
 
 Route::get('/Hoteles/Agregar', 'HotelController@create')->name('HotelCreate');
 Route::get('/Equipo/Agregar', 'EquipoController@create')->name('EquipoCreate');
@@ -26,6 +26,7 @@ Route::get('/Cancha/Agregar', 'CanchaController@create')->name('CanchaCreate');
 Route::get('/Jugador/Agregar', 'JugadorController@create')->name('JugadorCreate');
 Route::get('/Antidoping/Agregar', 'AntidopingController@create')->name('AntidopingCreate');
 Route::get('/Club/Agregar', 'ClubController@create')->name('ClubCreate');
+Route::get('/Reservacion/Agregar', 'ReservacionController@create')->name('ReservacionCreate');
 
 Route::post('/Hoteles/Agregar', 'HotelController@store')->name('HotelStore');
 Route::post('/Equipo/Agregar', 'EquipoController@store')->name('EquipoStore');
@@ -35,3 +36,4 @@ Route::post('/Cancha/Agregar', 'CanchaController@store')->name('CanchaStore');
 Route::post('/Jugador/Agregar', 'JugadorController@store')->name('JugadorStore');
 Route::post('/Antidoping/Agregar', 'AntidopingController@store')->name('AntidopingStore');
 Route::post('/Club/Agregar', 'ClubController@store')->name('ClubStore');
+Route::post('/Reservacion/Agregar', 'ReservacionController@store')->name('ReservacionStore');

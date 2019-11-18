@@ -8,12 +8,9 @@ class Cancha extends Model
 {
     protected $fillable = ['Ubicacion', 'Nombre'];
 
-    protected $guarded = ['Id'];
+    protected $guarded = ['id'];
 
-    /**
-     * Los partidos que pertenecen al arbitro.
-     **/
     public function partidos() {
-        return $this->hasMany('App\Cancha');
+        return $this->hasMany('App\Partido');
     }
 }

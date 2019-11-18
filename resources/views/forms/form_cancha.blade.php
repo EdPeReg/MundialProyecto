@@ -15,15 +15,18 @@
                 method="POST">
                 @csrf
                 <div class="md-form">
-                    <label for="materialUbicacion">Ubicacion:</label>
-                    <input value="{{ old('Ubicacion') }}" type="text" name="Ubicacion" id="materialUbicacion" class="form-control">
-                    {!! $errors->first('Ubicacion', '<small>:message</small><br>') !!} <br>
-                </div>
-
-                <div class="md-form">
-                    <label for="materialNombre">Nombre de la cancha:</label>
-                    <input value="{{ old('Nombre') }}" type="text" name="Nombre" id="materialNombre" class="form-control">
-                    {!! $errors->first('Nombre', '<small>:message</small><br>') !!} <br>
+                    <table width="100%">
+                        <td>
+                            <label for="materialNombre">Nombre de la cancha:</label>
+                            <input value="{{ old('Nombre') }}" type="text" name="Nombre" id="materialNombre" class="form-control">
+                            {!! $errors->first('Nombre', '<small>:message</small><br>') !!}
+                        </td>
+                        <td>
+                            <label for="materialUbicacion">Ubicacion:</label>
+                            <input value="{{ old('Ubicacion') }}" type="text" name="Ubicacion" id="materialUbicacion" class="form-control">
+                            {!! $errors->first('Ubicacion', '<small>:message</small><br>') !!}
+                        </td>
+                    </table>
                 </div>
 
                 <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"

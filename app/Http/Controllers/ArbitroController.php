@@ -39,22 +39,7 @@ class ArbitroController extends Controller
         $arbitro = new Arbitro;
         $arbitro->Primer_nombre = $request->Primer_nombre;
         $arbitro->Apellido = $request->Apellido;
-        $arbitro->Posicion = $request->Posicion;
         $arbitro->save();
-
-        
-
-
-        //$arbitro = \App\Arbitro::latest()->first();
-        //$partido = \App\Partido::orderBy('created_at', 'desc')->first();
-        //$partido = \App\Partido::all();
-
-        //echo $partido;
-
-        //$arbitro->partidos()->attach($partido);
-       
-
-
 
         return redirect()->route('Inicio');
     }

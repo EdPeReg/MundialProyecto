@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Jugador;
-use App\Club;
+use App\Reservacion;
 use App\Equipo;
+use App\Hotel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class JugadorController extends Controller
+class ReservacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,9 @@ class JugadorController extends Controller
      */
     public function index()
     {
-        //
+        $reservacions = Reservacion::all();
+
+        return view('indices.indice_reservacion')->with('reservacions', $reservacions);
     }
 
     /**
@@ -26,10 +29,10 @@ class JugadorController extends Controller
      */
     public function create()
     {
-        $clubs = Club::all();
         $equipos = Equipo::all();
+        $hotels = Hotel::all();
 
-        return view('forms.form_jugador')->with('clubs', $clubs)->with('equipos', $equipos);
+        return view('forms.form_reservacion')->with('equipos', $equipos)->with('hotels', $hotels);
     }
 
     /**
@@ -40,23 +43,16 @@ class JugadorController extends Controller
      */
     public function store(Request $request)
     {
-        $jugador = new Jugador;
-        $jugador->Num_i = $request->Num_i;
-        $jugador->Primer_nombre = $request->Nombre;
-        $jugador->Apellido = $request->Apellido;
-        $jugador->Nacionalidad = $request->Nacionalidad;
-        $jugador->Posicion = $request->Posicion;
-        $jugador->Peso = $request->Peso;
-        $jugador->Altura = $request->Altura;
-        $jugador->Fecha_nac = $request->Fecha_nac;
-        $jugador->Goles_mun = $request->Goles_mun;
-        $jugador->Num_playera = $request->Num_playera;
-        $jugador->equipo_id = $request->Equipo;
-        $jugador->save();
-
-        foreach ($request->Club as $key => $value) {
-            $jugador->clubs()->attach($value);
-        }
+        $reservacion = new Reservacion;
+        $reservacion->Num_habitaciones = $request->Num_habitaciones;
+        $reservacion->Duracion = $request->Duracion;
+        $reservacion->Fecha_entrada = $request->Fecha_entrada;
+        $Fecha = Carbon::create($request->Fecha_entrada);
+        $Fecha->addDays($request->Duracion);
+        $reservacion->Fecha_salida = $Fecha;
+        $reservacion->equipo_id = $request->Equipo;
+        $reservacion->hotel_id = $request->Hotel;
+        $reservacion->save();
 
         return redirect()->route('Inicio');
     }
@@ -64,10 +60,10 @@ class JugadorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Jugador  $jugador
+     * @param  \App\Reservacion  $reservacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Jugador $jugador)
+    public function show(Reservacion $reservacion)
     {
         //
     }
@@ -75,10 +71,10 @@ class JugadorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Jugador  $jugador
+     * @param  \App\Reservacion  $reservacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jugador $jugador)
+    public function edit(Reservacion $reservacion)
     {
         //
     }
@@ -87,10 +83,10 @@ class JugadorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Jugador  $jugador
+     * @param  \App\Reservacion  $reservacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jugador $jugador)
+    public function update(Request $request, Reservacion $reservacion)
     {
         //
     }
@@ -98,10 +94,10 @@ class JugadorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Jugador  $jugador
+     * @param  \App\Reservacion  $reservacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jugador $jugador)
+    public function destroy(Reservacion $reservacion)
     {
         //
     }

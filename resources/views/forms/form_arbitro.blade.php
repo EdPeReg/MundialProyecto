@@ -15,22 +15,19 @@
                 method="POST">
                 @csrf
                 <div class="md-form">
-                    <label for="materialPrimer_nombre">Primer Nombre:</label>
-                    <input value="{{ old('Primer_nombre') }}" type="text" name="Primer_nombre" id="materialPrimer_nombre" class="form-control">
-                    {!! $errors->first('Primer_nombre', '<small>:message</small><br>') !!} <br>
+                    <table width="100%">
+                        <td>
+                            <label for="materialPrimer_nombre">Primer Nombre:</label>
+                            <input value="{{ old('Primer_nombre') }}" type="text" name="Primer_nombre" id="materialPrimer_nombre" class="form-control">
+                            {!! $errors->first('Primer_nombre', '<small>:message</small><br>') !!}
+                        </td>
+                        <td>
+                            <label for="materialApellido">Apellido(s):</label>
+                            <input value="{{ old('Apellido') }}" type="text" name="Apellido" id="materialApellido" class="form-control">
+                            {!! $errors->first('Apellido', '<small>:message</small><br>') !!}
+                        </td>
+                    </table>
                 </div>
-
-                <div class="md-form">
-                    <label for="materialApellido">Apellido:</label>
-                    <input value="{{ old('Apellido') }}" type="text" name="Apellido" id="materialApellido" class="form-control">
-                    {!! $errors->first('Apellido', '<small>:message</small><br>') !!} <br>
-                </div>
-
-                <!--<div class="md-form">
-                    <label for="materialPosicion">Posicion:</label>
-                    <input value="{{ old('Posicion') }}" type="text" name="Posicion" id="materialPosicion" class="form-control">
-                    {!! $errors->first('Posicion', '<small>:message</small><br>') !!} <br>
-                </div>-->
 
                 <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect"
                     type="submit">Agregar</button>

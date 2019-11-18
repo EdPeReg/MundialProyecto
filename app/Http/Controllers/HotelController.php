@@ -37,8 +37,8 @@ class HotelController extends Controller
     {
         $hotel = new Hotel;
         $hotel->Nombre = $request->Nombre;
-        $hotel->Teléfono = $request->Teléfono;
-        $hotel->NúmeroExt = $request->NúmeroExt;
+        $hotel->Telefono = $request->Telefono;
+        $hotel->NumeroExt = $request->NumeroExt;
         $hotel->Calle = $request->Calle;
         $hotel->CP = $request->CP;
         $hotel->save();

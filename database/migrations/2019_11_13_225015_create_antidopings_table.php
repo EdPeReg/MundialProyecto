@@ -14,14 +14,14 @@ class CreateAntidopingsTable extends Migration
     public function up()
     {
         Schema::create('antidopings', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('jugador_id')->unsigned();
+            $table->increments('id');
+            $table->integer('jugador_id')->unsigned()->notnullable();
             $table->text('Resultado')->notnullable();
             $table->text('Lugar')->notnullable();
             $table->timestamp('Fecha')->notnullable();
             $table->timestamps();
 
-            $table->foreign('jugador_id')->references('id')->on('jugadors')->onDelete('cascade');
+            $table->foreign('jugador_id')->references('id')->on('jugadors')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

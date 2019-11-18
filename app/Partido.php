@@ -6,22 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Partido extends Model
 {
-     protected $fillable = ['Fecha', 'Resultado_eq1', 'Resultado_eq2'];
+     protected $fillable = ['arbitro_id', 'cancha_id','Fecha', 'Resultado_eq1', 'Resultado_eq2'];
 
-    protected $guarded = ['Id'];
+    protected $guarded = ['id'];
 
-
-    /**
-     * Los Arbitros que pertenecen al partido.
-     **/
-    public function arbitros() {
-        return $this->belongsToMany(Arbitro::class);
+    public function equipos() {
+    	return $this->belongsToMany('App\Equipo');
     }
 
-    /**
-     * Los Euipos que pertenecen al partido.
-     */
-    public function equipos() {
-    	return $this->belongsToMany(Equipo::class);
+    public function arbitro()
+    {
+        return $this->belongsTo('App\Arbitro');
+    }
+
+    public function cancha()
+    {
+        return $this->belongsTo('App\Cancha');
     }
 }

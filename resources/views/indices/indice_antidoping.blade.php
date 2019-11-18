@@ -11,26 +11,28 @@
         </h5>
 
         <div class="card-body px-lg-5">
-            <table width="100%" class="table table-striped">
-                <thead align="text-center" class="thead-dark">
+            <div class="">
+                <table width="100%" class="table table-bordered table-striped" id="dataTable" cellspacing="0">
+                    <thead class="thead-dark">
                     <tr>
-                        <th>Nombre del Jugador</th>
-                        <th>Lugar de examinación</th>
-                        <th>Fecha y Hora</th>
-                        <th>Resultado de examen</th>
-                    </tr>
-                </thead>
-                <tbody align="text-center">
-                    @foreach ($antidoping as $antidoping_item)
-                        <tr>
-                            <th>{{ $antidoping_item->jugador->Primer_nombre." ".$antidoping_item->jugador->Apellido }}</th>
-                            <th>{{ $antidoping_item->Lugar }}</th>
-                            <th>{{ $antidoping_item->Fecha }}</th>
-                            <th>{{ $antidoping_item->Resultado }}</th>
+                            <th>Nombre del Jugador</th>
+                            <th>Lugar de examinación</th>
+                            <th>Fecha y Hora</th>
+                            <th>Resultado de examen</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($antidoping as $antidoping_item)
+                            <tr>
+                                <th>{{ $antidoping_item->jugador->Primer_nombre." ".$antidoping_item->jugador->Apellido }}</th>
+                                <th>{{ $antidoping_item->Lugar }}</th>
+                                <th>{{ $antidoping_item->Fecha }}</th>
+                                <th>{{ $antidoping_item->Resultado }}</th>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
