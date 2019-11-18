@@ -16,6 +16,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>Nombre del Jugador</th>
+                            <th>Numero de Identificacion Nacional</th>
                             <th>Fecha de Nacimiento</th>
                             <th>Nacionalidad</th>
                             <th>Posicion</th>
@@ -29,6 +30,7 @@
                         @foreach ($jugadors as $jugador_item)
                             <tr>
                                 <th>{{ $jugador_item->Primer_nombre." ".$jugador_item->Apellido }}</th>
+                                <th>{{ $jugador_item->Num_i }}</th>
                                 <th>{{ $jugador_item->Fecha_nac }}</th>
                                 <th>{{ $jugador_item->Nacionalidad }}</th>
                                 <th>{{ $jugador_item->Posicion }}</th>
