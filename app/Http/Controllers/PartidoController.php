@@ -17,7 +17,9 @@ class PartidoController extends Controller
      */
     public function index()
     {
-        
+        $partidos = Partido::all();
+
+        return view('indices.indice_partido')->with('partidos', $partidos);
     }
 
     /**

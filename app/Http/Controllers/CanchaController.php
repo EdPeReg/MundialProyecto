@@ -14,7 +14,8 @@ class CanchaController extends Controller
      */
     public function index()
     {
-        //
+        $canchas = Cancha::all();
+        return view('indices.indice_cancha')->with('canchas', $canchas);
     }
 
     /**

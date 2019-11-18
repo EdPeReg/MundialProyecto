@@ -15,7 +15,9 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        //
+        $equipos = Equipo::all();
+
+        return view('indices.indice_equipo')->with('equipos', $equipos);
     }
 
     /**

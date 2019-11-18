@@ -17,6 +17,13 @@ Route::get('/', function () {return view('Inicio_temporal');})->name('Inicio');
 
 Route::get('/Antidoping', 'AntidopingController@index')->name('AntidopingIndex');
 Route::get('/Reservacion', 'ReservacionController@index')->name('ReservacionIndex');
+Route::get('/Hotel', 'HotelController@index')->name('HotelIndex');
+Route::get('/Equipo', 'EquipoController@index')->name('EquipoIndex');
+Route::get('/Cancha', 'CanchaController@index')->name('CanchaIndex');
+Route::get('/Partido', 'PartidoController@index')->name('PartidoIndex');
+Route::get('/Jugador', 'JugadorController@index')->name('JugadorIndex');
+Route::get('/Club', 'ClubController@index')->name('ClubIndex');
+Route::get('/Arbitro', 'ArbitroController@index')->name('ArbitroIndex');
 
 Route::get('/Hoteles/Agregar', 'HotelController@create')->name('HotelCreate');
 Route::get('/Equipo/Agregar', 'EquipoController@create')->name('EquipoCreate');

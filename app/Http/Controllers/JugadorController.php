@@ -16,7 +16,9 @@ class JugadorController extends Controller
      */
     public function index()
     {
-        //
+        $jugadors = Jugador::all();
+
+        return view('indices.indice_jugador')->with('jugadors', $jugadors);
     }
 
     /**

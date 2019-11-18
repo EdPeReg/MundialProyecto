@@ -14,7 +14,9 @@ class ArbitroController extends Controller
      */
     public function index()
     {
-       
+       $arbitros = Arbitro::all();
+
+        return view('indices.indice_arbitro')->with('arbitros', $arbitros);
     }
 
     /**

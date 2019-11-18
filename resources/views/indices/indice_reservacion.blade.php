@@ -18,6 +18,7 @@
                             <th>Nombre del hotel</th>
                             <th>Equipo</th>
                             <th>Habitaciones reservadas</th>
+                            <th>Duracion</th>
                             <th>Fecha de entrada</th>
                             <th>Fecha de salida</th>
                         </tr>
@@ -28,6 +29,7 @@
                                 <th>{{ $reservacion_item->hotel->Nombre }}</th>
                                 <th>{{ $reservacion_item->equipo->Pais }}</th>
                                 <th>{{ $reservacion_item->Num_habitaciones }}</th>
+                                <th>{{ $reservacion_item->Duracion }}</th>
                                 <th>{{ $reservacion_item->Fecha_entrada }}</th>
                                 <th>{{ $reservacion_item->Fecha_salida }}</th>
                             </tr>

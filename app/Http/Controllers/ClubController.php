@@ -14,7 +14,9 @@ class ClubController extends Controller
      */
     public function index()
     {
-        //
+        $clubs = Club::all();
+
+        return view('indices.indice_club')->with('clubs', $clubs);
     }
 
     /**

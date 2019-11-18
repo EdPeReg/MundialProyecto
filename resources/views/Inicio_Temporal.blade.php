@@ -7,6 +7,13 @@
     <h2>Indices:</h2><br>
     <a href={{ route('AntidopingIndex') }}>Menu de Antidoping</a><br>
     <a href={{ route('ReservacionIndex') }}>Menu de Reservacion</a><br>
+    <a href={{ route('HotelIndex') }}>Menu de Hotel</a><br>
+    <a href={{ route('EquipoIndex' }}>Menu de Equipos</a><br>
+    <a href={{ route('CanchaIndex') }}>Menu de Canchas</a><br>
+    <a href={{ route('PartidoIndex') }}>Menu de Partidos</a><br>
+    <a href={{ route('JugadorIndex') }}>Menu de Jugadores</a><br>
+    <a href={{ route('ClubIndex') }}>Menu de Clubes</a><br>
+    <a href={{ route('ArbitroIndex') }}>Menu de Arbitros</a><br>
     <br><h2>Crear:</h2><br>
     <a href={{ route('HotelCreate') }}>Formulario de Hotel</a><br>
     <a href={{ route('EquipoCreate') }}>Formulario de Equipo</a><br>
