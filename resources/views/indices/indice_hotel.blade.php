@@ -7,29 +7,23 @@
     <div class="card">
 
         <h5 class="card-header info-color white-text text-center py-4">
-            <strong>Hoteles</strong>
+            <strong>Lista de hoteles</strong>
         </h5>
 
         <div class="card-body px-lg-5">
             <div class="">
                 <table width="100%" class="table table-bordered table-striped" id="dataTable" cellspacing="0">
                     <thead class="thead-dark">
-                    <tr>
+                        <tr>
                             <th>Nombre del hotel</th>
-                            <th>Telefono</th>
-                            <th>Calle</th>
-                            <th>Numero exterior</th>
-                            <th>CP</th>
+                            <th>Número de contacto</th>
                         </tr>
                     </thead>
                     <tbody>
-                       @foreach ($hoteles as $hotel_item)
+                        @foreach ($hotel as $hotel_item)
                             <tr>
-                                <th>{{ $hotel_item->Nombre }}</th>
+                                <th><a href={{ route('HotelShow', $hotel_item) }}>{{ $hotel_item->Nombre }}</a></th>
                                 <th>{{ $hotel_item->Telefono }}</th>
-                                <th>{{ $hotel_item->Calle }}</th>
-                                <th>{{ $hotel_item->NumeroExt }}</th>
-                                <th>{{ $hotel_item->CP }}</th>
                             </tr>
                         @endforeach
                     </tbody>

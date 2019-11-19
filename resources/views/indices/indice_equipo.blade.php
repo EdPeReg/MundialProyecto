@@ -17,17 +17,13 @@
                     <tr>
                             <th>Pais</th>
                             <th>Director</th>
-                            <th>Entrenador</th>
-                            <th>Camiseta</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($equipos as $equipo_item)
                             <tr>
-                                <th>{{ $equipo_item->Pais }}</th>
+                                <th><a href={{ route('EquipoShow', $equipo_item) }}>{{ $equipo_item->Pais }}</a></th>
                                 <th>{{ $equipo_item->Director }}</th>
-                                <th>{{ $equipo_item->Entrenador }}</th>
-                                <th>{{ $equipo_item->Camiseta }}</th>
                             </tr>
                         @endforeach
                     </tbody>

@@ -14,21 +14,21 @@
             <div class="">
                 <table width="100%" class="table table-bordered table-striped" id="dataTable" cellspacing="0">
                     <thead class="thead-dark">
-                    <tr>
-                            <th>Nombre de la cancha</th>
-                            <th>Nombre del arbitro</th>
-                            <th>Resultado del equipo 1</th>
-                            <th>Resultado del equipo 2</th>
+                        <tr>
+                            <th>ID partido</th>
+                            <th>Equipos</th>
                             <th>Fecha en la que se jugo</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($partidos as $partido_item)
                             <tr>
-                                <th>{{ $partido_item->cancha->Nombre }}</th>
-                                <th>{{ $partido_item->arbitro->Primer_nombre." ".$partido_item->arbitro->Apellido }}</th>
-                                <th>{{ $partido_item->Resultado_eq1 }}</th>
-                                <th>{{ $partido_item->Resultado_eq2 }}</th>
+                                <th><a href={{ route('PartidoShow', $partido_item) }}>{{ $partido_item->id }}</a></th>
+                                <th>
+                                    @foreach ($partido_item->equipos as $equipo)
+                                        {{ "--".$equipo->Pais }}
+                                    @endforeach
+                                </th>
                                 <th>{{ $partido_item->Fecha }}</th>
                             </tr>
                         @endforeach

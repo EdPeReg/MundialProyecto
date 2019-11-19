@@ -14,24 +14,18 @@
             <div class="">
                 <table width="100%" class="table table-bordered table-striped" id="dataTable" cellspacing="0">
                     <thead class="thead-dark">
-                    <tr>
+                        <tr>
+                            <th>ID reservacion</th>
                             <th>Nombre del hotel</th>
                             <th>Equipo</th>
-                            <th>Habitaciones reservadas</th>
-                            <th>Duracion</th>
-                            <th>Fecha de entrada</th>
-                            <th>Fecha de salida</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($reservacions as $reservacion_item)
                             <tr>
+                                <th><a href={{ route('ReservacionShow', $reservacion_item) }}>{{ $reservacion_item->id }}</a></th>
                                 <th>{{ $reservacion_item->hotel->Nombre }}</th>
                                 <th>{{ $reservacion_item->equipo->Pais }}</th>
-                                <th>{{ $reservacion_item->Num_habitaciones }}</th>
-                                <th>{{ $reservacion_item->Duracion }}</th>
-                                <th>{{ $reservacion_item->Fecha_entrada }}</th>
-                                <th>{{ $reservacion_item->Fecha_salida }}</th>
                             </tr>
                         @endforeach
                     </tbody>

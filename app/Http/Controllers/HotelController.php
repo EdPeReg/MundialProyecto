@@ -14,9 +14,9 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hoteles = Hotel::all();
+        $hotel = Hotel::all();
 
-        return view('indices.indice_hotel')->with('hoteles', $hoteles);
+        return view('indices.indice_hotel')->with('hotel', $hotel);
     }
 
     /**
@@ -56,7 +56,9 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        //
+        return view('shows.show_hotel', [
+            'hotel' => $hotel
+        ]);
     }
 
     /**
@@ -67,7 +69,9 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        //
+        return view('f_updates.f_up_hotel', [
+            'hotel' => $hotel
+        ]);
     }
 
     /**
@@ -77,9 +81,17 @@ class HotelController extends Controller
      * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hotel $hotel)
+    public function update(Hotel $hotel, Request $request)
     {
-        //
+        $hotel->update([
+            'Nombre' => request('Nombre'),
+            'Telefono' => request('Telefono'),
+            'Calle' => request('Calle'),
+            'NumeroExt' => request('NumeroExt'),
+            'CP' => request('CP')
+        ]);
+
+        return redirect()->route('HotelShow', $hotel);
     }
 
     /**
@@ -90,6 +102,8 @@ class HotelController extends Controller
      */
     public function destroy(Hotel $hotel)
     {
-        //
+        $hotel->delete();
+
+        return redirect()->route('HotelIndex');
     }
 }

@@ -21,7 +21,7 @@
                     <tbody>
                         @foreach ($arbitros as $arbitro_item)
                             <tr>
-                                <th>{{ $arbitro_item->Primer_nombre." ".$arbitro_item->Apellido }}</th>
+                                <th><a href={{ route('ArbitroShow', $arbitro_item) }}>{{ $arbitro_item->Primer_nombre." ".$arbitro_item->Apellido }}</a></th>
                             </tr>
                         @endforeach
                     </tbody>

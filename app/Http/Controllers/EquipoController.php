@@ -54,9 +54,11 @@ class EquipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Equipo $equipo)
     {
-        //
+        return view('shows.show_equipo',[
+            'equipo' => $equipo
+        ]);
     }
 
     /**
@@ -65,9 +67,11 @@ class EquipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Equipo $equipo)
     {
-        //
+        return view('f_updates.f_up_equipo',[
+            'equipo' => $equipo
+        ]);
     }
 
     /**
@@ -77,9 +81,16 @@ class EquipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Equipo $equipo)
     {
-        //
+        $equipo->update([
+            'Pais' => request('Pais'),
+            'Director' => request('Director'),
+            'Entrenador' => request('Entrenador'),
+            'Camiseta' => request('Camiseta')
+        ]);
+
+        return redirect()->route('EquipoShow', $equipo);
     }
 
     /**
@@ -88,8 +99,10 @@ class EquipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Equipo $equipo)
     {
-        //
+        $equipo->delete();
+
+        return redirect()->route('EquipoIndex');
     }
 }

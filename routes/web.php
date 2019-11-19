@@ -11,10 +11,10 @@
 |
 */
 
-
-
+//Ruta pagina principal
 Route::get('/', function () {return view('Inicio_temporal');})->name('Inicio');
 
+//Rutas de Indices
 Route::get('/Antidoping', 'AntidopingController@index')->name('AntidopingIndex');
 Route::get('/Reservacion', 'ReservacionController@index')->name('ReservacionIndex');
 Route::get('/Hotel', 'HotelController@index')->name('HotelIndex');
@@ -25,6 +25,7 @@ Route::get('/Jugador', 'JugadorController@index')->name('JugadorIndex');
 Route::get('/Club', 'ClubController@index')->name('ClubIndex');
 Route::get('/Arbitro', 'ArbitroController@index')->name('ArbitroIndex');
 
+//Rutas de Creacion
 Route::get('/Hoteles/Agregar', 'HotelController@create')->name('HotelCreate');
 Route::get('/Equipo/Agregar', 'EquipoController@create')->name('EquipoCreate');
 Route::get('/Partido/Agregar', 'PartidoController@create')->name('PartidoCreate');
@@ -35,6 +36,7 @@ Route::get('/Antidoping/Agregar', 'AntidopingController@create')->name('Antidopi
 Route::get('/Club/Agregar', 'ClubController@create')->name('ClubCreate');
 Route::get('/Reservacion/Agregar', 'ReservacionController@create')->name('ReservacionCreate');
 
+//Rutas de Guardar en BD
 Route::post('/Hoteles/Agregar', 'HotelController@store')->name('HotelStore');
 Route::post('/Equipo/Agregar', 'EquipoController@store')->name('EquipoStore');
 Route::post('/Partido/Agregar', 'PartidoController@store')->name('PartidoStore');
@@ -44,3 +46,29 @@ Route::post('/Jugador/Agregar', 'JugadorController@store')->name('JugadorStore')
 Route::post('/Antidoping/Agregar', 'AntidopingController@store')->name('AntidopingStore');
 Route::post('/Club/Agregar', 'ClubController@store')->name('ClubStore');
 Route::post('/Reservacion/Agregar', 'ReservacionController@store')->name('ReservacionStore');
+
+//Rutas de Mostrar
+Route::get('/Hotel/{hotel}', 'HotelController@show')->name('HotelShow');
+Route::get('/Antidoping/{antidoping}', 'AntidopingController@show')->name('AntidopingShow');
+Route::get('/Equipo/{equipo}', 'EquipoController@show')->name('EquipoShow');
+Route::get('/Partido/{partido}', 'PartidoController@show')->name('PartidoShow');
+Route::get('/Reservacion/{reservacion}', 'ReservacionController@show')->name('ReservacionShow');
+Route::get('/Cancha/{cancha}', 'CanchaController@show')->name('CanchaShow');
+Route::get('/Jugador/{jugador}', 'JugadorController@show')->name('JugadorShow');
+Route::get('/Club/{club}', 'ClubController@show')->name('ClubShow');
+Route::get('/Arbitro/{arbitro}', 'ArbitroController@show')->name('ArbitroShow');
+
+//Rutas de Editar
+Route::get('Hotel/{hotel}/Editar', 'HotelController@edit')->name('HotelEdit');
+Route::get('/Antidoping/{antidoping}/Editar', 'AntidopingController@edit')->name('AntidopingEdit');
+Route::get('/Equipo/{equipo}/Editar', 'EquipoController@edit')->name('EquipoEdit');
+
+//Rutas de Actualizar en BD
+Route::patch('/Hotel/{hotel}', 'HotelController@update')->name('HotelUpdate');
+Route::patch('/Antidoping/{antidoping}', 'AntidopingController@update')->name('AntidopingUpdate');
+Route::patch('/Equipo/{equipo}', 'EquipoController@update')->name('EquipoUpdate');
+
+//Rutas de Borrar de BD
+Route::delete('/Hotel/{hotel}', 'HotelController@destroy')->name('HotelDestroy');
+Route::delete('/Antidoping/{antidoping}', 'AntidopingController@destroy')->name('AntidopingDestroy');
+Route::delete('/Equipo/{equipo}', 'EquipoController@destroy')->name('EquipoDestroy');

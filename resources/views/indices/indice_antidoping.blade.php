@@ -15,18 +15,16 @@
                 <table width="100%" class="table table-bordered table-striped" id="dataTable" cellspacing="0">
                     <thead class="thead-dark">
                         <tr>
+                            <th>ID examen</th>
                             <th>Nombre del Jugador</th>
-                            <th>Lugar de examinación</th>
-                            <th>Fecha y Hora</th>
                             <th>Resultado de examen</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($antidoping as $antidoping_item)
                             <tr>
+                                <th><a href={{ route('AntidopingShow', $antidoping_item) }}>{{ $antidoping_item->id }}</a></th>
                                 <th>{{ $antidoping_item->jugador->Primer_nombre." ".$antidoping_item->jugador->Apellido }}</th>
-                                <th>{{ $antidoping_item->Lugar }}</th>
-                                <th>{{ $antidoping_item->Fecha }}</th>
                                 <th>{{ $antidoping_item->Resultado }}</th>
                             </tr>
                         @endforeach

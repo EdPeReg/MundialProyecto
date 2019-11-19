@@ -21,7 +21,7 @@
                     <tbody>
                         @foreach ($clubs as $club_item)
                             <tr>
-                                <th>{{ $club_item->Nombre }}</th>
+                                <th><a href={{ route('ClubShow', $club_item) }}>{{ $club_item->Nombre }}</a></th>
                             </tr>
                         @endforeach
                     </tbody>

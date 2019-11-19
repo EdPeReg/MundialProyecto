@@ -22,7 +22,7 @@
                     <tbody>
                        @foreach ($canchas as $cancha_item)
                             <tr>
-                                <th>{{ $cancha_item->Nombre }}</th>
+                                <th><a href={{ route('CanchaShow', $cancha_item) }}>{{ $cancha_item->Nombre }}</a></th>
                                 <th>{{ $cancha_item->Ubicacion }}</th>
                             </tr>
                         @endforeach

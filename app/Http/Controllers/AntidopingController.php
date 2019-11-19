@@ -58,7 +58,9 @@ class AntidopingController extends Controller
      */
     public function show(Antidoping $antidoping)
     {
-        //
+        return view('shows.show_antidoping',[
+            'antidoping' => $antidoping
+        ]);
     }
 
     /**
@@ -69,7 +71,11 @@ class AntidopingController extends Controller
      */
     public function edit(Antidoping $antidoping)
     {
-        //
+        $jugadores = Jugador::all();
+
+        return view('f_updates.f_up_antidoping',[
+            'antidoping' => $antidoping
+        ])->with('jugadores', $jugadores);
     }
 
     /**
@@ -81,7 +87,14 @@ class AntidopingController extends Controller
      */
     public function update(Request $request, Antidoping $antidoping)
     {
-        //
+        $antidoping->update([
+            'jugador_id' => request('Jugador'),
+            'Resultado' => request('Resultado'),
+            'Lugar' => request('Lugar'),
+            'Fecha' => request('Fecha')
+        ]);
+
+        return redirect()->route('AntidopingShow', $antidoping);
     }
 
     /**
@@ -92,6 +105,8 @@ class AntidopingController extends Controller
      */
     public function destroy(Antidoping $antidoping)
     {
-        //
+        $antidoping->delete();
+
+        return redirect()->route('AntidopingIndex');
     }
 }
