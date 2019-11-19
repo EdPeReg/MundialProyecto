@@ -107,11 +107,13 @@ class JugadorController extends Controller
             'Primer_nombre' => request('Nombre'),
             'Apellido' => request('Apellido'),
             'Nacionalidad' => request('Nacionalidad'),
+            'Posicion' => request('Posicion'),
             'Peso' => request('Peso'),
             'Altura' => request('Altura'),
             'Fecha_nac' => request('Fecha_nac'),
             'Goles_mun' => request('Goles_mun'),
-            'Num_playera' => request('Num_playera')
+            'Num_playera' => request('Num_playera'),
+            'equipo_id' => request('Equipo')
         ]);
 
         return redirect()->route('JugadorShow', $jugador);
