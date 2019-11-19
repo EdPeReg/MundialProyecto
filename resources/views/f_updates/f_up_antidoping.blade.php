@@ -11,8 +11,7 @@
         </h5>
 
         <div class="card-body px-lg-5">
-            <form class="text-left" enctype="multipart/form-data" style="color: #757575" action="{{ route('AntidopingUpdate', $antidoping) }}"
-                method="POST">
+            <form class="text-left" enctype="multipart/form-data" style="color: #757575" action="{{ route('AntidopingUpdate', $antidoping) }}" method="POST">
                 @csrf @method('PATCH')
                 <div class="md-form">
                     <table width="100%">

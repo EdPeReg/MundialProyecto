@@ -18,8 +18,7 @@
                     <table width="100%">
                         <td width="60%">
                             <label for="materialPaisEquipo">Pais:</label>
-                            <input value="{{ old('Pais', $equipo->Pais) }}" type="text" name="Pais" id="materialPaisEquipo"
-                                class="form-control">
+                            <input value="{{ old('Pais', $equipo->Pais) }}" type="text" name="Pais" id="materialPaisEquipo" class="form-control">
                             {!! $errors->first('Pais', '<small>:message</small><br>') !!}
                         </td>
                         <td width="40%">

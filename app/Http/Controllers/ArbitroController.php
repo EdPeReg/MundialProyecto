@@ -52,9 +52,11 @@ class ArbitroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Arbitro $arbitro)
     {
-        //
+        return view('shows.show_arbitro',[
+            'arbitro' => $arbitro
+        ]);
     }
 
     /**
@@ -63,9 +65,11 @@ class ArbitroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Arbitro $arbitro)
     {
-        //
+        return view('f_updates.f_up_arbitro',[
+            'arbitro' => $arbitro
+        ]);
     }
 
     /**
@@ -75,9 +79,14 @@ class ArbitroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Arbitro $arbitro)
     {
-        //
+        $arbitro->update([
+            'Primer_nombre' => request('Primer_nombre'),
+            'Apellido' => request('Apellido'),
+        ]);
+
+        return redirect()->route('ArbitroShow', $arbitro);
     }
 
     /**
@@ -86,8 +95,10 @@ class ArbitroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Arbitro $arbitro)
     {
-        //
+         $arbitro->delete();
+
+        return redirect()->route('ArbitroIndex');
     }
 }

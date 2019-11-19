@@ -52,7 +52,9 @@ class CanchaController extends Controller
      */
     public function show(Cancha $cancha)
     {
-        //
+        return view('shows.show_cancha',[
+            'cancha' => $cancha
+        ]);
     }
 
     /**
@@ -63,7 +65,9 @@ class CanchaController extends Controller
      */
     public function edit(Cancha $cancha)
     {
-        //
+        return view('f_updates.f_up_cancha',[
+            'cancha' => $cancha
+        ]);
     }
 
     /**
@@ -75,7 +79,12 @@ class CanchaController extends Controller
      */
     public function update(Request $request, Cancha $cancha)
     {
-        //
+         $cancha->update([
+            'Ubicacion' => request('Ubicacion'),
+            'Nombre' => request('Nombre')
+        ]);
+
+        return redirect()->route('CanchaShow', $cancha);
     }
 
     /**
@@ -86,6 +95,8 @@ class CanchaController extends Controller
      */
     public function destroy(Cancha $cancha)
     {
-        //
+        $cancha->delete();
+
+        return redirect()->route('CanchaIndex');
     }
 }

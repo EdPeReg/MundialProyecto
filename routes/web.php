@@ -62,13 +62,31 @@ Route::get('/Arbitro/{arbitro}', 'ArbitroController@show')->name('ArbitroShow');
 Route::get('Hotel/{hotel}/Editar', 'HotelController@edit')->name('HotelEdit');
 Route::get('/Antidoping/{antidoping}/Editar', 'AntidopingController@edit')->name('AntidopingEdit');
 Route::get('/Equipo/{equipo}/Editar', 'EquipoController@edit')->name('EquipoEdit');
+Route::get('/Reservacion/{reservacion}/Editar', 'ReservacionController@edit')->name('ReservacionEdit');
+Route::get('/Jugador/{jugador}/Editar', 'JugadorController@edit')->name('JugadorEdit');
+Route::get('/Club/{club}/Editar', 'ClubController@edit')->name('ClubEdit');
+Route::get('/Partido/{partido}/Editar', 'PartidoController@edit')->name('PartidoEdit');
+Route::get('/Arbitro/{arbitro}/Editar', 'ArbitroController@edit')->name('ArbitroEdit');
+Route::get('/Cancha/{cancha}/Editar', 'CanchaController@edit')->name('CanchaEdit');
 
 //Rutas de Actualizar en BD
 Route::patch('/Hotel/{hotel}', 'HotelController@update')->name('HotelUpdate');
 Route::patch('/Antidoping/{antidoping}', 'AntidopingController@update')->name('AntidopingUpdate');
 Route::patch('/Equipo/{equipo}', 'EquipoController@update')->name('EquipoUpdate');
+Route::patch('/Reservacion/{reservacion}', 'ReservacionController@update')->name('ReservacionUpdate');
+Route::patch('/Jugador/{jugador}', 'JugadorController@update')->name('JugadorUpdate');
+Route::patch('/Club/{club}', 'ClubController@update')->name('ClubUpdate');
+Route::patch('/Partido/{partido}', 'PartidoController@update')->name('PartidoUpdate');
+Route::patch('/Arbitro/{arbitro}', 'ArbitroController@update')->name('ArbitroUpdate');
+Route::patch('/Cancha/{cancha}', 'CanchaController@update')->name('CanchaUpdate');
 
 //Rutas de Borrar de BD
 Route::delete('/Hotel/{hotel}', 'HotelController@destroy')->name('HotelDestroy');
 Route::delete('/Antidoping/{antidoping}', 'AntidopingController@destroy')->name('AntidopingDestroy');
 Route::delete('/Equipo/{equipo}', 'EquipoController@destroy')->name('EquipoDestroy');
+Route::delete('/Reservacion/{reservacion}', 'ReservacionController@destroy')->name('ReservacionDestroy');
+Route::delete('/Jugador/{jugador}', 'JugadorController@destroy')->name('JugadorDestroy');
+Route::delete('/Club/{club}', 'ClubController@destroy')->name('ClubDestroy');
+Route::delete('/Partido/{partido}', 'PartidoController@destroy')->name('PartidoDestroy');
+Route::delete('/Arbitro/{arbitro}', 'ArbitroController@destroy')->name('ArbitroDestroy');
+Route::delete('/Cancha/{cancha}', 'CanchaController@destroy')->name('CanchaDestroy');

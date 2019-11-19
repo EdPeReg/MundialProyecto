@@ -63,9 +63,11 @@ class PartidoController extends Controller
      * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function show(Hotel $hotel)
+    public function show(Partido $partido)
     {
-        //
+        return view('shows.show_partido',[
+            'partido' => $partido
+        ]);
     }
 
     /**
@@ -74,9 +76,17 @@ class PartidoController extends Controller
      * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hotel $hotel)
+    public function edit(Partido $partido)
     {
-        //
+        $partidos = Partido::all();
+        $canchas = Cancha::all();
+        $equipos = Equipo::all();
+        $arbitros = Arbitro::all();
+
+        return view('f_updates.f_up_partido',[
+            'partido' => $partido
+        ])->with('partidos', $partidos)->with('canchas', $canchas)->with('equipos', $equipos)->
+        with('arbitros', $arbitros);
     }
 
     /**
@@ -86,9 +96,17 @@ class PartidoController extends Controller
      * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hotel $hotel)
+    public function update(Request $request, Partido $partido)
     {
-        //
+        $partido->update([
+            'Resultado_eq1' => request('Resultado_eq1'),
+            'Resultado_eq2' => request('Resultado_eq2'),
+            'Fecha' => request('Fecha'),
+            'arbitro_id' => request('Arbitro'),
+            'cancha_id' => request('Cancha'),
+        ]);
+
+        return redirect()->route('PartidoShow', $partido);
     }
 
     /**
@@ -97,10 +115,10 @@ class PartidoController extends Controller
      * @param  \App\Hotel  $hotel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hotel $hotel)
+    public function destroy(Partido $partido)
     {
-        //
+        $partido->delete();
+
+        return redirect()->route('PartidoIndex');
     }
 }
-$arbitro = Partido::find(1);
-        echo $arbitro;

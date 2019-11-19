@@ -71,7 +71,9 @@ class JugadorController extends Controller
      */
     public function show(Jugador $jugador)
     {
-        //
+         return view('shows.show_jugador',[
+            'jugador' => $jugador
+        ]);
     }
 
     /**
@@ -82,7 +84,13 @@ class JugadorController extends Controller
      */
     public function edit(Jugador $jugador)
     {
-        //
+        $jugadores = Jugador::all();
+        $equipos = Equipo::all();
+        $clubs = Club::all();
+
+        return view('f_updates.f_up_jugador',[
+            'jugador' => $jugador
+        ])->with('jugadores', $jugadores)->with('equipos', $equipos)->with('clubs', $clubs);
     }
 
     /**
@@ -94,7 +102,19 @@ class JugadorController extends Controller
      */
     public function update(Request $request, Jugador $jugador)
     {
-        //
+        $jugador->update([
+            'Num_i' => request('Num_i'),
+            'Primer_nombre' => request('Nombre'),
+            'Apellido' => request('Apellido'),
+            'Nacionalidad' => request('Nacionalidad'),
+            'Peso' => request('Peso'),
+            'Altura' => request('Altura'),
+            'Fecha_nac' => request('Fecha_nac'),
+            'Goles_mun' => request('Goles_mun'),
+            'Num_playera' => request('Num_playera')
+        ]);
+
+        return redirect()->route('JugadorShow', $jugador);
     }
 
     /**
@@ -105,6 +125,8 @@ class JugadorController extends Controller
      */
     public function destroy(Jugador $jugador)
     {
-        //
+         $jugador->delete();
+
+        return redirect()->route('JugadorIndex');
     }
 }

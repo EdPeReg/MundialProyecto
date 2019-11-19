@@ -65,7 +65,9 @@ class ReservacionController extends Controller
      */
     public function show(Reservacion $reservacion)
     {
-        //
+        return view('shows.show_reservacion',[
+            'reservacion' => $reservacion
+        ]);
     }
 
     /**
@@ -76,7 +78,12 @@ class ReservacionController extends Controller
      */
     public function edit(Reservacion $reservacion)
     {
-        //
+         $hoteles = Hotel::all();
+         $equipos = Equipo::all();
+
+        return view('f_updates.f_up_reservacion',[
+            'reservacion' => $reservacion
+        ])->with('hoteles', $hoteles)->with('equipos', $equipos);
     }
 
     /**
@@ -88,7 +95,20 @@ class ReservacionController extends Controller
      */
     public function update(Request $request, Reservacion $reservacion)
     {
-        //
+        $Fecha = Carbon::create($request->Fecha_entrada);
+        $Fecha->addDays($request->Duracion);
+
+         $reservacion->update([
+            'hotel_id' => request('Hotel'),
+            'equipo_id' => request('Equipo'),
+            'Num_habitaciones' => request('Num_habitaciones'),
+            'Duracion' => request('Duracion'),
+            'Fecha_entrada' => request('Fecha_entrada'),
+            'equipo_id' => request('Equipo'),
+            'hotel_id' => request('Hotel')
+        ]);
+
+        return redirect()->route('ReservacionShow', $reservacion);
     }
 
     /**
@@ -99,6 +119,8 @@ class ReservacionController extends Controller
      */
     public function destroy(Reservacion $reservacion)
     {
-        //
+        $reservacion->delete();
+
+        return redirect()->route('ReservacionIndex');
     }
 }

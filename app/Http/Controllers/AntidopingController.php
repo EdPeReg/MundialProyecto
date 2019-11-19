@@ -88,7 +88,6 @@ class AntidopingController extends Controller
     public function update(Request $request, Antidoping $antidoping)
     {
         $antidoping->update([
-            'jugador_id' => request('Jugador'),
             'Resultado' => request('Resultado'),
             'Lugar' => request('Lugar'),
             'Fecha' => request('Fecha')

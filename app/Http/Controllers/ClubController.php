@@ -52,7 +52,9 @@ class ClubController extends Controller
      */
     public function show(Club $club)
     {
-        //
+        return view('shows.show_club',[
+            'club' => $club
+        ]);
     }
 
     /**
@@ -63,7 +65,9 @@ class ClubController extends Controller
      */
     public function edit(Club $club)
     {
-        //
+       return view('f_updates.f_up_club',[
+            'club' => $club
+        ]);
     }
 
     /**
@@ -75,7 +79,11 @@ class ClubController extends Controller
      */
     public function update(Request $request, Club $club)
     {
-        //
+        $club->update([
+            'Nombre' => request('Nombre'),
+        ]);
+
+        return redirect()->route('ClubShow', $club);
     }
 
     /**
@@ -86,6 +94,8 @@ class ClubController extends Controller
      */
     public function destroy(Club $club)
     {
-        //
+        $club->delete();
+
+        return redirect()->route('ClubIndex');
     }
 }
